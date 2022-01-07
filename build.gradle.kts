@@ -36,5 +36,15 @@ repositories {
 }
 
 dependencies {
+    val kotlinVersion = "1.6.10"
     implementation(kotlin("stdlib"))
+    taboo("io.github:fast-classpath-scanner:3.1.13")
+    implementation("org.jetbrains.kotlin:kotlin-main-kts:$kotlinVersion")
+    implementation("org.jetbrains.kotlin:kotlin-scripting-common:$kotlinVersion")
+    implementation("org.jetbrains.kotlin:kotlin-scripting-jvm:$kotlinVersion")
+    implementation("org.jetbrains.kotlin:kotlin-scripting-jvm-host:$kotlinVersion")
+    compileOnly("ink.ptms:nms-all:1.0.0")
+    compileOnly("ink.ptms.core:v11800:11800:api")
+    compileOnly("ink.ptms.core:v11800:11800:mapped")
+    compileOnly("ink.ptms.core:v11800:11800:universal")
 }
