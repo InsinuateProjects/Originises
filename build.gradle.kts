@@ -27,7 +27,7 @@ taboolib {
     relocate(name.toLowerCase(), group.toString().toLowerCase())
 
     classifier = null
-    version = "6.0.7-16"
+    version = "6.0.7-19"
 }
 
 repositories {
@@ -43,6 +43,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-scripting-common:$kotlinVersion")
     implementation("org.jetbrains.kotlin:kotlin-scripting-jvm:$kotlinVersion")
     implementation("org.jetbrains.kotlin:kotlin-scripting-jvm-host:$kotlinVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
     compileOnly("ink.ptms:nms-all:1.0.0")
     compileOnly("ink.ptms.core:v11800:11800:api")
     compileOnly("ink.ptms.core:v11800:11800:mapped")

@@ -1,10 +1,16 @@
 package originises
 
+import kotlinx.coroutines.runBlocking
 import taboolib.common.env.RuntimeDependencies
 import taboolib.common.env.RuntimeDependency
 import taboolib.common.platform.Plugin
 import taboolib.common.platform.function.getDataFolder
+import taboolib.common.platform.function.releaseResourceFile
+import taboolib.common.platform.function.submit
 import java.io.File
+import kotlin.script.experimental.api.ScriptCompilationConfiguration
+import kotlin.script.experimental.host.toScriptSource
+import kotlin.script.experimental.jvmhost.BasicJvmScriptingHost
 
 /**
  * Originises
@@ -25,10 +31,14 @@ import java.io.File
 )
 object Originises : Plugin() {
 
-    val mainFile = File(getDataFolder(), "core/main.kts")
+    val mainFile by lazy { releaseResourceFile("core/main.kts") }
+
+    val scriptingHost = BasicJvmScriptingHost()
 
     override fun onEnable() {
-
+        runBlocking {
+            scriptingHost.compiler(mainFile.toScriptSource(), ScriptCompilationConfiguration())
+        }
     }
 
 }
